@@ -27,6 +27,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': 'off',
     'react/prop-types': 'off',
+    'react/no-children-prop': 'off',
     'jsx-a11y/no-onchange': 'off',
     '@next/next/no-img-element': 'off',
     'jsx-a11y/anchor-is-valid': [

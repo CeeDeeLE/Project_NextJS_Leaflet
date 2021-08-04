@@ -7,46 +7,65 @@ Der Antwort-Text soll in einem strong-Element mit der Klasse "big-text" angezeig
 Bonus: Nutzt den Hook useDebouncedValue.
 */
 
-import Layout from '../components/Layout';
 import { useEffect, useState } from 'react';
 import { useDebouncedValue } from '../hooks/useDebouncedValue';
+import Layout from '../components/Layout';
 
+// liest den schon geshuffelten Text aus dem api-Unterverzeichnis aus
 export default function ShuffleText() {
-  //
+  // zum Einlesen des Textes von der Seite und Ausgeben des geshuffelten Textes
   const [text, setText] = useState('');
-  const debouncedText = useDebouncedValue(text, 300);
+  const debouncedText = useDebouncedValue(text, 200);
+
+  const [shuffledText, setShuffledText] = useState('');
 
   useEffect(() => {
-    async function fetchText() {
+    // fetch-Dings
+    async function fetchShuffledText() {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/shuffletext?text=${debouncedText}`
+          // meine Lösung:
+          // `http://localhost:3000/api/shuffletext?text=${debouncedText}`
+
+          // Jonathans Lösung:
+          `/api/shuffletext?text=${debouncedText}`
         );
 
-        const apiText = await response.json();
+        // wenn fetch-Anfrage fehlschlägt
+        if (!response.ok) {
+          throw new Error('Problem aufgetreten!');
+        }
 
-        setText(apiText.ShuffleText);
+        // holt den geshuffelten Text in apiText ab
+        const apiText = await response.json();
+        setShuffledText(apiText.text);
+
+        // falls try nicht geklappt hat
       } catch (error) {
         console.log('Fehler');
       }
     }
-    fetchText();
+    // Aufruf fetch-Dings
+    fetchShuffledText();
   }, [debouncedText]);
 
-  const quote =
-    'Lernen, ohne zu denken, ist verlorene Mühe. Denken, ohne etwas gelernt zu haben, ist gefährlich. Hoffe nicht auf Zukünftiges, denke über Vergangenes nach. Wer das Morgen nicht bedenkt, wird Kummer haben, bevor das Heute zu Ende ist.';
+  const quote = `Lernen, ohne zu denken, ist verlorene Mühe. Denken, ohne etwas gelernt zu haben, ist gefährlich. Hoffe nicht auf Zukünftiges, denke über Vergangenes nach. Wer das Morgen nicht bedenkt, wird Kummer haben, bevor das Heute zu Ende ist.`;
   return (
-    <>
-      <Layout>
-        <label htmlFor="text">Texteingabe</label>
-        <input
-          id="text"
-          value={text}
-          defaultValue={quote}
-          onChange={(e) => setText(e.target.value)}
-        />
-        <strong className="big-text">{text}</strong>
-      </Layout>
-    </>
+    <Layout title="Text-Shuffler">
+      <p>
+        Textvorschlag: <br />
+        {quote}
+      </p>
+      <label htmlFor="text">Texteingabe: &nbsp;</label>
+      <input
+        id="text"
+        value={text}
+        // defaultValue={quote}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <p>
+        <strong className="big-text">{shuffledText}</strong>
+      </p>
+    </Layout>
   );
 }

@@ -8,10 +8,18 @@ ausgegeben, nicht im Browser!
 4. Gebt den Text in einem JSON-Objekt unter dem Schlüssel text zurück.
 */
 import { shuffle } from '../../library/helpers';
+
 export default function shuffleText(req, res) {
   console.log(req.query);
+
   const { text = '' } = req.query;
-  // const textArray = text.split('');
-  const shuffledText = shuffle([...text]).join('');
+
+  // meine Lösung mit Option auf verschiedene Split-Kriterien:
+  const textArray = text.split(' ');
+  const shuffledText = shuffle(textArray.join(''));
+
+  // // Friedrichs Lösung - one step:
+  // const shuffledText = shuffle([...text]).join('');
+
   res.status(200).json({ text: shuffledText });
 }

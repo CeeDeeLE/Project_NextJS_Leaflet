@@ -6,10 +6,21 @@ export default function Navigation() {
       <Link href="/">
         <a>Start</a>
       </Link>
+      <Link href="/textShuffler">
+        <a>Text-Shuffler</a>
+      </Link>
+      <Link href="/gallery">
+        <a>Galerie</a>
+      </Link>
+      <Link href="https://cimdata.de">
+        <a target="_blank">Cimdata</a>
+      </Link>
+      <Link href="/contact">
+        <a>Kontakt</a>
+      </Link>
       <Link href="/impressum">
         <a>Impressum</a>
       </Link>
-      <a href="https://cimdata.de">Cimdata</a>
     </nav>
   );
 }

@@ -28,7 +28,8 @@ body {
 .inner-width {
   width: 100%;
   max-width: 50rem;
-  margin-left: auto;
-  margin-right: auto;
   padding: 0 1rem;
+  margin: 0 auto;
+  _margin-left: auto;
+  _margin-right: auto;
 }
