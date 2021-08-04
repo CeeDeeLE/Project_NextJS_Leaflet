@@ -1,9 +1,14 @@
-@import "variables/variables";
-@import "typographie";
-@import "normalize";
-@import "layout";
-@import "navigation";
-@import "header";
-@import "form-elements";
-@import "components/components";
-@import "images";
+@import 'variables/variables';
+@import 'typographie';
+@import 'normalize';
+@import 'layout';
+@import 'navigation';
+@import 'header';
+@import 'form-elements';
+@import 'components/components';
+@import 'images';
+
+.logo {
+  width: 100%;
+  max-width: 20rem;
+}

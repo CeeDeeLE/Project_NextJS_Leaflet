@@ -5,34 +5,35 @@ module.exports = {
     node: true,
   },
   extends: [
-    "eslint:recommended",
-    "plugin:jsx-a11y/recommended",
-    "next",
-    "prettier",
+    'eslint:recommended',
+    'plugin:jsx-a11y/recommended',
+    'next',
+    'prettier',
   ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
-    sourceType: "module",
+    sourceType: 'module',
   },
-  plugins: ["jsx-a11y"],
+  plugins: ['jsx-a11y'],
   settings: {
     react: {
-      version: "detect",
+      version: 'detect',
     },
   },
   rules: {
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": "off",
-    "react/prop-types": "off",
-    "jsx-a11y/no-onchange": "off",
-    "jsx-a11y/anchor-is-valid": [
-      "error",
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-filename-extension': 'off',
+    'react/prop-types': 'off',
+    'jsx-a11y/no-onchange': 'off',
+    '@next/next/no-img-element': 'off',
+    'jsx-a11y/anchor-is-valid': [
+      'error',
       {
-        components: ["Link"],
-        aspects: ["invalidHref"],
+        components: ['Link'],
+        aspects: ['invalidHref'],
       },
     ],
   },
