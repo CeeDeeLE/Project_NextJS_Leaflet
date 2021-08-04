@@ -1,10 +1,9 @@
 import Layout from '../components/Layout';
 
-export default function Home() {
+export default function home() {
   return (
-    /* Hier die Layout-Komponente einsetzen und ihr den
-    Inhalt der Seite als Kindelement übergeben. Dazu den title-Prop.  */
-    <Layout title="Start">
+    <Layout title="Home">
+      {/* inner-HTML sind die Kindelemente, die als children ausgelesen werden */}
       <p>Websites mit NextJS</p>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corporis

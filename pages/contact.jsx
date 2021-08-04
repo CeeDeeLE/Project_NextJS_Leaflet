@@ -2,7 +2,7 @@ import Layout from '../components/Layout';
 
 export default function contact() {
   return (
-    <Layout title="Kontakt">
+    <Layout title="Contact">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, odit dicta
         neque molestiae et optio cum esse incidunt voluptates ad! Sit iusto vero

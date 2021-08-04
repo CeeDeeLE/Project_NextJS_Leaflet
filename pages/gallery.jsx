@@ -2,7 +2,7 @@ import Layout from '../components/Layout';
 
 export default function gallery() {
   return (
-    <Layout title="Galerie">
+    <Layout title="Gallery">
       <p>
         <img
           className="image"

@@ -4,7 +4,7 @@ export default function Navigation() {
   return (
     <nav className="site-navigation">
       <Link href="/">
-        <a>Start</a>
+        <a>Home</a>
       </Link>
       <Link href="/textShuffler">
         <a>Text-Shuffler</a>
