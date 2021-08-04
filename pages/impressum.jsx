@@ -4,7 +4,10 @@ import Image from 'next/image';
 export default function impressum() {
   return (
     <Layout title="Impressum">
-      {/** eslint schlägt Image als bevorzugte Lösung vor -> ist deaktiviert */}
+      {/** 
+      eslint schlägt Image statt img als bevorzugte Lösung vor 
+      -> ist deaktiviert, geht jetzt beides 
+      */}
       <Image
         className="logo"
         src="/img/logo@2x.jpg"
