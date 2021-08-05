@@ -1,7 +1,15 @@
 // Quelle: https://newsapi.org/
 import Layout from '@/components/Layout';
+import NewsList from '@/components/NewsList';
 
-const apiKey = '2db3e0610d984bce92afc4143fbb8fe2';
+// statt des Keys hier ein Link auf eine Datei, die nicht auf GitHub geladen wird
+/* https://nextjs.org/docs/basic-features/environment-variables
+Achtung: process.env ist kein normales Objekt, Destructuring
+funktioniert nicht, immer process.env.KEY ausschreiben! 
+Achtung: Werte stehen erst nach Neustart des Servers bzw.
+dev-Prozesses zur Verfügung.
+*/
+const apiKey = process.env.NEWS_API_KEY;
 
 const testResults = {
   status: 'ok',
@@ -77,8 +85,8 @@ export default function news({ test, time, news, livenews }) {
       <br />
       <br />
       {/* {JSON.stringify(news)} */}
-      {JSON.stringify(livenews)}
-      <br />
+      {/* {JSON.stringify(livenews)} */}
+      <NewsList news={livenews} title="aktuelle Meldungen" />
       <br />
     </Layout>
   );
