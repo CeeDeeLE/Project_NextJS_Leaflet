@@ -78,7 +78,9 @@ export async function getStaticProps() {
   };
 }
 
-export default function news({ test, time, news, livenews }) {
+// Function musste 2x angelegt werden, da compilieren mit ungenutzen Var nicht mgl.
+// export default function news({ test, time, livenews }) {
+export default function news({ test, time, news }) {
   return (
     <Layout title="News">
       {test} - es ist {time}
