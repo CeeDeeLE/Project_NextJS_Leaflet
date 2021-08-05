@@ -83,6 +83,7 @@ export default function gallery() {
         // height={3456}
         sizes="(max-width: 52rem) 90vw, 50rem"
         layout="responsive"
+        placeholder="blur"
         alt="Hong-Kong mit Bergen im Hintergrund"
         title="Hong-Kong mit Bergen im Hintergrund"
       />
