@@ -1,6 +1,10 @@
 // nextjs bietet Abkürzungen für Importpfade
 // statt: import Layout from '../components/Layout';
-import Layout from '';
+import Layout from '@/components/Layout';
+import Image from 'next/image';
+// in jsconfig.json ist Pfadangabe mit @ eingetragen und wird hier automatisch vorgeschlagen
+// mit dem Bildimport an dieser Stelle kann auf die Angabe von width und height verzichtet werden
+import hongKong from '@/img/hong-kong.jpg';
 
 export default function gallery() {
   return (
@@ -65,6 +69,23 @@ export default function gallery() {
           title="Herbstlaub"
         />
       </picture>
+      {/* Image-Element benötigt unbedingt sizes.
+      Bei width und height kommt es vor allem auf das richtige Seitenverhältnis an.
+      Mit layout="responsive" werden automatisch größere und kleinere Versionen erzeugt.
+      Das Ausgabeformat ist webp. 
+      */}
+      <Image
+        // Wenn man ein Bild, das auf dem Server liegt, zuvor importiert
+        // und bei src einsetzt, kann man width und height weglassen.
+        src={hongKong}
+        // src="/img/hong-kong.jpg"
+        // width={5184}
+        // height={3456}
+        sizes="(max-width: 52rem) 90vw, 50rem"
+        layout="responsive"
+        alt="Hong-Kong mit Bergen im Hintergrund"
+        title="Hong-Kong mit Bergen im Hintergrund"
+      />
     </Layout>
   );
 }
