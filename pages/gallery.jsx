@@ -1,4 +1,6 @@
-import Layout from '../components/Layout';
+// nextjs bietet Abkürzungen für Importpfade
+// statt: import Layout from '../components/Layout';
+import Layout from '';
 
 export default function gallery() {
   return (
@@ -10,11 +12,11 @@ export default function gallery() {
           srcSet="/img/logo@1x.jpg 1x, /img/logo@2x.jpg 2x"
           // verzögertes Laden für besseren Bildaufbau und weniger Speichernutzung
           loading="lazy"
-          alt="Logo Schoenlein"
-          title="Logo Schoenlein"
           // width und height für den Browser angeben -> Berechnung Seitenverhältnis
           width="320"
           height="100"
+          alt="Logo Schoenlein"
+          title="Logo Schoenlein"
         />
       </p>
       <p>
@@ -23,13 +25,13 @@ export default function gallery() {
           src="https://picsum.photos/id/1011/900/450"
           srcSet="https://picsum.photos/id/1011/450/225 450w, https://picsum.photos/id/1011/900/450 900w, https://picsum.photos/id/1011/1350/675 1350w, https://picsum.photos/id/1011/1800/900 1800w"
           // verzögertes Laden für besseren Bildaufbau und weniger Speichernutzung
-          loading="lazy"
           sizes="(max-width: 52rem) 90vw, 50rem"
-          alt="Logo Schoenlein"
-          title="Logo Schoenlein"
+          loading="lazy"
           // width und height für den Browser angeben -> Berechnung Seitenverhältnis
           width="2"
           height="1"
+          alt="im Boot"
+          title="im Boot"
         />
       </p>
       <picture>
@@ -47,7 +49,8 @@ export default function gallery() {
           srcSet="/img/header-image-landscape@1000.jpg 1000w,/img/header-image-landscape@1500.jpg 1500w,/img/header-image-landscape@2000.jpg 2000w"
           sizes="(max-width: 52rem) 90vw, 50rem"
           loading="lazy"
-          alt=""
+          alt="Mann am Strand"
+          title="Mann am Strand"
         />
       </picture>
       <picture>
@@ -55,10 +58,11 @@ export default function gallery() {
         <img
           className="image"
           src="/img/herbst.jpg"
-          alt=""
           loading="lazy"
           width="4"
           height="3"
+          alt="Herbstlaub"
+          title="Herbstlaub"
         />
       </picture>
     </Layout>
