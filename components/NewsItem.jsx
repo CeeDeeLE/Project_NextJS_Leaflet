@@ -25,23 +25,35 @@ Nutzt für das Bild die Image-Komponente von Next!
 // import Image from 'next/image';
 import { useToggle } from '../hooks/useToggle';
 
-export default function NewsItem({ title, description, url, imageURL }) {
-  const [showNews, toogleShowNews] = useToggle(false);
+export default function NewsItem({
+  source,
+  author,
+  title,
+  description,
+  url,
+  urlToImage,
+  publishedAt,
+}) {
+  const [showDetails, toogleShowDetails] = useToggle(false);
   return (
     <div>
       <article className="news-item">
         <h3 className="news-item__title">
           <a href={url}>{title}</a>
         </h3>
-        <button onClick={toogleShowNews}>
-          {showNews ? 'Weniger anzeigen' : 'Mehr anzeigen'}
+        <div>
+          Quelle: {source.name}, Autor: {author}, erschienen:{' '}
+          {new Date(publishedAt).toLocaleDateString()}
+        </div>
+        <button onClick={toogleShowDetails}>
+          {showDetails ? 'Weniger anzeigen' : 'Mehr anzeigen'}
         </button>
-        {showNews && (
+        {showDetails && (
           <div className="news-item__content">
-            {imageURL && (
+            {urlToImage && (
               <img
                 className="news-item__image"
-                src={imageURL}
+                src={urlToImage}
                 alt="Bild zur Nachricht"
               />
             )}

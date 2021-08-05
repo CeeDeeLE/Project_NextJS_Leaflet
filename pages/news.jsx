@@ -86,7 +86,8 @@ export default function news({ test, time, news, livenews }) {
       <br />
       {/* {JSON.stringify(news)} */}
       {/* {JSON.stringify(livenews)} */}
-      <NewsList news={livenews} title="aktuelle Meldungen" />
+      <NewsList news={news} title="aktuelle Meldungen" />
+      {/* <NewsList news={livenews} title="aktuelle Meldungen" /> */}
       <br />
     </Layout>
   );

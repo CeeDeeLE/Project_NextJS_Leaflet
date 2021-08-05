@@ -18,6 +18,9 @@ export default function Navigation() {
       <Link href="https://cimdata.de">
         <a target="_blank">Cimdata</a>
       </Link>
+      <Link href="/blog">
+        <a>Blog</a>
+      </Link>
       <Link href="/contact">
         <a>Kontakt</a>
       </Link>
