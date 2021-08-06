@@ -1,4 +1,3 @@
-// Kopie als _rest-api im Hauptverzeichnis
 import Link from 'next/link';
 import Image from 'next/image';
 import Layout from '@/components/Layout';
@@ -6,10 +5,11 @@ import { useRouter } from 'next/router';
 // import { useRouter } from 'next/dist/client/router';
 
 // slug ist dynamischer Platzhalter
-const graphQlPath = 'https://react.webworker.berlin/graphql';
+const apiPath = 'https://react.webworker.berlin/wp-json/wp/v2/';
 
-/* Vorbereitung zum Abholen der Blogdaten -> Info welche Daten von welcher Seite
--> Wenn man einen dynamischen Pfad hat, muss man Next mitteilen,
+// Abholen der Blogdaten vom Server erfolgt in Vorbereitung des nächsten Schrittes
+/* 
+Wenn man einen dynamischen Pfad hat, muss man Next mitteilen,
 welche Pfade das System statisch generieren soll, hier also
 eine Liste der vorhanden Blog-Slugs übergeben. 
 */
@@ -18,20 +18,10 @@ export async function getStaticPaths() {
   let paths = [];
 
   try {
-    const query = `{
-      posts {
-        nodes {
-          slug
-        }
-      }
-    }`;
-
-    // zum Testen:
-    // https://react.webworker.berlin/graphql?query={posts{nodes{slug}}}
-    // wenn es nicht genutzt wurde, muss es fürs Compilieren auskommentiert werden
-    const response = await fetch(`${graphQlPath}?query=${query}`);
+    // da es nicht genutzt wurde, muss es fürs Compilieren auskommentiert werden
+    const response = await fetch(`${apiPath}posts`);
     //
-    // wenn es nicht genutzt wurde, muss es fürs Compilieren auskommentiert werden
+    // da es nicht genutzt wurde, muss es fürs Compilieren auskommentiert werden
     const posts = await response.json();
     //
     /*	
@@ -39,13 +29,12 @@ export async function getStaticPaths() {
   	die getStaticProps erhält. 
     Bild-Daten sind in einer Unterseite enthalten -> media + id -> und müssen in einer extra function ausgelesen werden
       */
-    // wenn es nicht genutzt wurde, muss es fürs Compilieren auskommentiert werden
-    paths = posts.data.posts.nodes.map(({ slug }) => ({ params: { slug } }));
+    // da es nicht genutzt wurde, muss es fürs Compilieren auskommentiert werden
+    paths = posts.map(({ slug }) => ({ params: { slug } }));
   } catch (e) {
     console.log(e);
   }
 
-  return { paths, fallback: true };
   /* 
   fallback legt fest, dass ein neuer und noch nicht in paths
   enthaltene Slug frisch von WordPress geholt werden soll.
@@ -53,10 +42,10 @@ export async function getStaticPaths() {
   also alle Blogbeiträge erst statisch generiert, wenn sie
   zum ersten Mal angefordert werden. Man könnte in paths
   auch nur z.B. die 20 neuesten Blogbeiträge übergeben. 
-  Alles oben kann bei dieser Variante entfallen !
-  -> damit wird aber das Vorabladen verhindert 
-  -> Performance-Problem !
   */
+
+  return { paths, fallback: true };
+  // alles oben kann bei dieser Zeile entfallen !
   // return { paths: [], fallback: true };
 }
 
@@ -69,37 +58,15 @@ export async function getStaticProps({ params }) {
   let post = {};
 
   try {
-    const data = `{
-      post(id: "${params.slug}", idType: SLUG) {
-      title
-      content
-      featuredImage {
-        node {
-          altText
-          guid
-          mediaDetails {
-            height
-            width
-          }
-        }
-      }
-      }
-    }`;
+    const response = await fetch(`${apiPath}posts?slug=${params.slug}`);
 
-    const response = await fetch(`${graphQlPath}?query=${data}`);
-
-    const responseObject = await response.json();
-    post = responseObject.data.post;
+    const postsArray = await response.json();
+    post = postsArray[0];
 
     // prüfen, ob in featured media (Bildeintrag) eine id eingetragen ist
     // die Bild-Daten benötigen eine zweite Anfrage
-    if (post.featuredImage) {
-      post.titleImage = {
-        src: post.featuredImage.node.guid,
-        width: post.featuredImage.node.guid.mediaDetails.width,
-        height: post.featuredImage.node.guid.mediaDetails.height,
-        alt: post.featuredImage.node.guid.altText,
-      };
+    if (post.featured_media) {
+      post.titleImage = await getTitleImage(post.featured_media);
     }
   } catch (error) {
     console.log('Problem bei Blog-Daten-Abfrage aufgetreten.');
@@ -110,6 +77,23 @@ export async function getStaticProps({ params }) {
   };
 }
 
+async function getTitleImage(imageId) {
+  try {
+    const response = await fetch(`${apiPath}media/${imageId}`);
+    const imageData = await response.json();
+
+    return {
+      src: imageData.guid.rendered,
+      width: imageData.media_details.width,
+      height: imageData.media_details.height,
+      alt: imageData.alt_text,
+    };
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
 export default function BlogPost({ post }) {
   // https://nextjs.org/docs/basic-features/data-fetching#fallback-pages
   // wenn eine url aufgerufen wird, die noch nicht bekannt ist, dann Laden... anzeigen
@@ -118,22 +102,17 @@ export default function BlogPost({ post }) {
     return <strong>Laden...</strong>;
   }
 
-  console.log(post);
-
-  const { title, content, featuredImage } = post;
+  const { title, content, titleImage } = post;
   return (
-    <Layout title={title}>
-      {featuredImage && (
+    <Layout title={title.rendered}>
+      {titleImage && (
         <Image
-          src={featuredImage.node.guid}
-          alt={featuredImage.node.altText}
-          width={featuredImage.node.mediaDetails.width}
-          height={featuredImage.node.mediaDetails.height}
+          {...titleImage}
           layout="responsive"
           sizes="(max-width: 50rem) 100vw, 50rem"
         />
       )}
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <div dangerouslySetInnerHTML={{ __html: content.rendered }} />
       <Link href="../blog">zurück</Link>
     </Layout>
   );

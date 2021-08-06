@@ -9,7 +9,7 @@ funktioniert nicht, immer process.env.KEY ausschreiben!
 Achtung: Werte stehen erst nach Neustart des Servers bzw.
 dev-Prozesses zur Verfügung.
 */
-const apiKey = process.env.NEWS_API_KEY;
+// const apiKey = process.env.NEWS_API_KEY;
 
 const testResults = {
   status: 'ok',

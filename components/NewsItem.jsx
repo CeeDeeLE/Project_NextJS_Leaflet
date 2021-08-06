@@ -1,7 +1,7 @@
 // https://www.badestellen.berlin.de/#/
 
 // import Image from 'next/image';
-import { useToggle } from '../hooks/useToggle';
+// import { useToggle } from '../hooks/useToggle';
 
 export default function NewsItem({
   // id: properties.data.id,
@@ -18,51 +18,51 @@ export default function NewsItem({
   // coords: geometry.coordinates,
 
   properties,
-  geometry,
+  // geometry,
 }) {
-  const [showDetails, toogleShowDetails] = useToggle(false);
+  // const [showDetails, toogleShowDetails] = useToggle(false);
 
-  const link = {
-    'Alter Hof': '2',
-    Bammelecke: '4',
-    Breitehorn: '6',
-    'Bürgerablage / Oberhavel': '8',
-    Dämeritzsee: 10,
-    Flughafensee: 12,
-    'Friedrichshagen, Seebad': 14,
-    'Gartenstraße, Flussbad': 16,
-    'Groß Glienicker See, nördlich': 18,
-    'Groß Glienicker See, südlich': 20,
-    'Große Krampe': 22,
-    // Große Steinlanke
-    // Grünau, Freibad
-    // Grunewaldturm
-    // Halensee
-    // Heiligensee, Freibad
-    // Jungfernheide, Freibad
-    // Kleine Badewiese
-    // Kleiner Müggelsee
-    // Krumme Lanke
-    // Lieper Bucht
-    // Lübars, Freibad (Ziegeleisee)
-    // Müggelsee, Strandbad
-    // Orankesee, Strandbad
-    // Plötzensee, Freibad
-    // Radfahrerwiese
-    // Sandhauser Straße
-    // Schlachtensee
-    // Schmöckwitz
-    // Seddinsee
-    // Tegeler See, Freibad
-    // Tegeler See, gegenüber Reiswerder
-    // Tegeler See, gegenüber Scharfenberg
-    // Tegeler See, Reiherwerder
-    // Tegeler See, Saatwinkel
-    // Teufelssee
-    // Wannsee, Strandbad
-    // Weißensee, Seebadeanstalt
-    // Wendenschloss, Freibad
-  };
+  // const link = {
+  //   'Alter Hof': '2',
+  //   Bammelecke: '4',
+  //   Breitehorn: '6',
+  //   'Bürgerablage / Oberhavel': '8',
+  //   Dämeritzsee: 10,
+  //   Flughafensee: 12,
+  //   'Friedrichshagen, Seebad': 14,
+  //   'Gartenstraße, Flussbad': 16,
+  //   'Groß Glienicker See, nördlich': 18,
+  //   'Groß Glienicker See, südlich': 20,
+  //   'Große Krampe': 22,
+  // Große Steinlanke
+  // Grünau, Freibad
+  // Grunewaldturm
+  // Halensee
+  // Heiligensee, Freibad
+  // Jungfernheide, Freibad
+  // Kleine Badewiese
+  // Kleiner Müggelsee
+  // Krumme Lanke
+  // Lieper Bucht
+  // Lübars, Freibad (Ziegeleisee)
+  // Müggelsee, Strandbad
+  // Orankesee, Strandbad
+  // Plötzensee, Freibad
+  // Radfahrerwiese
+  // Sandhauser Straße
+  // Schlachtensee
+  // Schmöckwitz
+  // Seddinsee
+  // Tegeler See, Freibad
+  // Tegeler See, gegenüber Reiswerder
+  // Tegeler See, gegenüber Scharfenberg
+  // Tegeler See, Reiherwerder
+  // Tegeler See, Saatwinkel
+  // Teufelssee
+  // Wannsee, Strandbad
+  // Weißensee, Seebadeanstalt
+  // Wendenschloss, Freibad
+  //  };
 
   return (
     <div>

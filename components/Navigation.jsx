@@ -21,6 +21,9 @@ export default function Navigation() {
       <Link href="/map">
         <a>Karte</a>
       </Link>
+      <Link href="/standorte">
+        <a>Standorte</a>
+      </Link>
       <Link href="/impressum">
         <a>Impressum</a>
       </Link>
