@@ -8,14 +8,18 @@ a {
 }
 
 .site-navigation {
-  padding: 1rem 0;
+  width: 100%;
+  _background: var(--text);
+  text-align: center;
+  padding: 0 1rem;
   a {
     font-size: 1.2rem;
+    font-weight: 900;
     text-decoration: none;
     text-transform: uppercase;
     display: inline-block;
     &:not(:last-of-type) {
-      margin-right: 1rem;
+      margin-right: 1.4rem;
     }
   }
 }

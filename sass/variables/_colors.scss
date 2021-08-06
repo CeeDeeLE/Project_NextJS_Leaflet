@@ -1,12 +1,17 @@
 $dark-purple: #232946;
+$black: rgb(15, 15, 15);
 $white: #fffffe;
-$text: #a7a9be;
+$green: rgb(76, 175, 80);
 $orange: #ff8906;
-$black: #0f0e17;
 $medium-red: #e53170;
 $light-red: #f25f4c;
+$creme: rgb(200, 200, 150);
 
 :root {
-  --link-color: #{$medium-red};
+  --bg-color: #282828;
+  --bg-black: rgb(0, 0, 0);
+  --bg-black-fog: rgba(255, 255, 255, 0.1);
+  --link-color: #{$green};
   --hover-color: #{$orange};
+  --text: #{$creme};
 }

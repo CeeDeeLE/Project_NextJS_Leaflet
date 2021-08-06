@@ -1,65 +1,98 @@
-/*
-Mit Hilfe des useToggle-Hooks, den wir in der
-Custom Hooks-Übung geschrieben haben, soll der Content-Bereich
-ein- und ausgeblendet werden, der Text im Button soll entsprechend
-wechseln. Anfangs soll der Content eingeklappt sein.
-Der description-Text ist für "description", nicht "content" des
-News-Objekts. Das Bild nur anzeigen, wenn eine Bildquelle vorhanden
-ist. Das alt-Attribut kann leer bleiben, weil es im Datensatz leider
-nicht enthalten ist.
-Nutzt für das Bild die Image-Komponente von Next!
- 
-<article class="news-item">
-<h3 class="news-item__title">
-  <a href="">Titel</a>
-</h3>
-<button>
- Weniger anzeigen / Mehr anzeigen
-</button>
-<div class="news-item__content">
-<img class="news-item__image" src="" alt="" />
-<p class="news-item__description">Nachrichtentext</p>
-</div>
-</article> */
+// https://www.badestellen.berlin.de/#/
 
 // import Image from 'next/image';
 import { useToggle } from '../hooks/useToggle';
 
 export default function NewsItem({
-  source,
-  author,
-  title,
-  description,
-  url,
-  urlToImage,
-  publishedAt,
+  // id: properties.data.id,
+  // bezirk: properties.data.bezirk,
+  // eco: properties.data.eco,
+  // ente: properties.data.ente,
+  // temperature: properties.data.temp,
+  // sicht: properties.data.sicht,
+  // datum: properties.data.dat,
+  // pdf: properties.data.pdflink,
+  // bad: properties.title,
+  // url2: properties.href,
+  // bild: properties.description,
+  // coords: geometry.coordinates,
+
+  properties,
+  geometry,
 }) {
   const [showDetails, toogleShowDetails] = useToggle(false);
+
+  const link = {
+    'Alter Hof': '2',
+    Bammelecke: '4',
+    Breitehorn: '6',
+    'Bürgerablage / Oberhavel': '8',
+    Dämeritzsee: 10,
+    Flughafensee: 12,
+    'Friedrichshagen, Seebad': 14,
+    'Gartenstraße, Flussbad': 16,
+    'Groß Glienicker See, nördlich': 18,
+    'Groß Glienicker See, südlich': 20,
+    'Große Krampe': 22,
+    // Große Steinlanke
+    // Grünau, Freibad
+    // Grunewaldturm
+    // Halensee
+    // Heiligensee, Freibad
+    // Jungfernheide, Freibad
+    // Kleine Badewiese
+    // Kleiner Müggelsee
+    // Krumme Lanke
+    // Lieper Bucht
+    // Lübars, Freibad (Ziegeleisee)
+    // Müggelsee, Strandbad
+    // Orankesee, Strandbad
+    // Plötzensee, Freibad
+    // Radfahrerwiese
+    // Sandhauser Straße
+    // Schlachtensee
+    // Schmöckwitz
+    // Seddinsee
+    // Tegeler See, Freibad
+    // Tegeler See, gegenüber Reiswerder
+    // Tegeler See, gegenüber Scharfenberg
+    // Tegeler See, Reiherwerder
+    // Tegeler See, Saatwinkel
+    // Teufelssee
+    // Wannsee, Strandbad
+    // Weißensee, Seebadeanstalt
+    // Wendenschloss, Freibad
+  };
+
   return (
     <div>
       <article className="news-item">
         <h3 className="news-item__title">
-          <a href={url}>{title}</a>
+          <a
+            href={`https://www.badestellen.berlin.de/#/detail/${2}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {properties.title}
+          </a>
         </h3>
         <div>
-          Quelle: {source.name}, Autor: {author}, erschienen:{' '}
-          {new Date(publishedAt).toLocaleDateString()}
+          Quelle: LaGeSo, vom:{' '}
+          {/* {new Date(features.properties.data.dat).toLocaleDateString()} */}
         </div>
-        <button onClick={toogleShowDetails}>
+        {/* <button onClick={toogleShowDetails}>
           {showDetails ? 'Weniger anzeigen' : 'Mehr anzeigen'}
-        </button>
-        {showDetails && (
-          <div className="news-item__content">
-            {urlToImage && (
-              <img
-                className="news-item__image"
-                src={urlToImage}
-                alt="Bild zur Nachricht"
-              />
-            )}
-            <p className="news-item__description">{description}</p>
-          </div>
-        )}
+        </button> */}
+        <div className="news-item__content">
+          <img
+            className="news-item__image"
+            // src={properties.description}
+            alt="Bild zur Nachricht"
+          />
+          <p className="news-item__description">
+            {/* {(geometry.coordinates[1], geometry.coordinates[0])} */}
+          </p>
+        </div>
       </article>
     </div>
   );

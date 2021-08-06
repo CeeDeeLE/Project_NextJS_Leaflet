@@ -15,14 +15,11 @@ export default function Navigation() {
       <Link href="/news">
         <a>News</a>
       </Link>
-      <Link href="https://cimdata.de">
-        <a target="_blank">Cimdata</a>
-      </Link>
       <Link href="/blog">
         <a>Blog</a>
       </Link>
-      <Link href="/contact">
-        <a>Kontakt</a>
+      <Link href="/map">
+        <a>Karte</a>
       </Link>
       <Link href="/impressum">
         <a>Impressum</a>

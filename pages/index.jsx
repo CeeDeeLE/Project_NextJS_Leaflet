@@ -1,3 +1,6 @@
+// node-geonames installiert -> zum Fertigstellen siehe:
+// https://www.npmjs.com/package/node-geonames-client
+
 import Layout from '../components/Layout';
 
 export default function home() {

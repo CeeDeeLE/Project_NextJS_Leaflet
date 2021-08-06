@@ -1,76 +1,107 @@
 /* karla-regular - latin */
 @font-face {
-  font-family: "Karla";
+  font-family: 'Karla';
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("/fonts/karla-v13-latin-regular.woff2") format("woff2"),
+  src: local(''), url('/fonts/karla-v13-latin-regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/fonts/karla-v13-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('/fonts/karla-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* karla-italic - latin */
 @font-face {
-  font-family: "Karla";
+  font-family: 'Karla';
   font-style: italic;
   font-weight: 400;
-  src: local(""), url("/fonts/karla-v13-latin-italic.woff2") format("woff2"),
+  src: local(''), url('/fonts/karla-v13-latin-italic.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/fonts/karla-v13-latin-italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('/fonts/karla-v13-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* karla-700 - latin */
 @font-face {
-  font-family: "Karla";
+  font-family: 'Karla';
   font-style: normal;
   font-weight: 700;
-  src: local(""), url("/fonts/karla-v13-latin-700.woff2") format("woff2"),
+  src: local(''), url('/fonts/karla-v13-latin-700.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/fonts/karla-v13-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('/fonts/karla-v13-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* karla-700italic - latin */
 @font-face {
-  font-family: "Karla";
+  font-family: 'Karla';
   font-style: italic;
   font-weight: 700;
-  src: local(""), url("/fonts/karla-v13-latin-700italic.woff2") format("woff2"),
+  src: local(''), url('/fonts/karla-v13-latin-700italic.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/fonts/karla-v13-latin-700italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('/fonts/karla-v13-latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* rubik-mono-one-regular - latin */
 @font-face {
-  font-family: "Rubik Mono One";
+  font-family: 'Rubik Mono One';
   font-style: normal;
   font-weight: 400;
-  src: local(""),
-    url("/fonts/rubik-mono-one-v9-latin-regular.woff2") format("woff2"),
+  src: local(''),
+    url('/fonts/rubik-mono-one-v9-latin-regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/fonts/rubik-mono-one-v9-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('/fonts/rubik-mono-one-v9-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* rubik-regular - latin */
 @font-face {
-  font-family: "Rubik";
+  font-family: 'Rubik';
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("/fonts/rubik-v11-latin-regular.woff2") format("woff2"),
+  src: local(''), url('/fonts/rubik-v11-latin-regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/fonts/rubik-v11-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('/fonts/rubik-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-body {
-  font-family: "Karla", sans-serif;
-}
-
-h1 {
-  font-family: "Rubik Mono One", serif;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Rubik", serif;
+// zum Testen
+@font-face {
+  font-family: 'H1-Test-Schrift';
+  font-style: normal;
+  font-weight: 400;
+  // elegante Serifenübergangsschrift
+  src: local(''), url('/fonts/philosopher_regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/philosopher_regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  // Schulkreide-Druckschrift
+  // src: local(''), url('/fonts/eraser.woff2') format('woff2'),
+  //   /* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/eraser.woff')
+  //     format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  // passt sehr gut zu Rubik
+  // src: local(''), url('/fonts/lato-v17-latin-regular.woff2') format('woff2'),
+  //   /* Chrome 26+, Opera 23+, Firefox 39+ */
+  //     url('/fonts/lato-v17-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  // Gothik
+  // src: local(''), url('/fonts/gondola_SD.woff2') format('woff2'),
+  //   /* Chrome 26+, Opera 23+, Firefox 39+ */
+  //     url('/fonts/gondola_SD.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  // sehr scharfe/ gestochene Schrift
+  // src: local(''), url('/fonts/caviar_dreams_bold.woff2') format('woff2'),
+  //   /* Chrome 26+, Opera 23+, Firefox 39+ */
+  //     url('/fonts/caviar_dreams_bold.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  // wie Rubik Mono, aber ohne Serifen
+  // src: local(''), url('/fonts/candal.woff2') format('woff2'),
+  //   /* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/candal.woff')
+  //     format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  // Druckbuchstaben-Handschrift
+  // src: local(''), url('/fonts/blokletters-balpen.woff2') format('woff2'),
+  //   /* Chrome 26+, Opera 23+, Firefox 39+ */
+  //     url('/fonts/blokletters-balpen.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  // Druckbuchstaben-Handschrift
+  // src: local(''), url('/fonts/ArchitectsDaughter.woff2') format('woff2'),
+  //   /* Chrome 26+, Opera 23+, Firefox 39+ */
+  //     url('/fonts/ArchitectsDaughter.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  // seriöse Comic-Schrift
+  // src: local(''), url('/fonts/adam.woff2') format('woff2'),
+  //   /* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/adam.woff')
+  //     format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  // alte Schreibmaschine
+  // src: local(''), url('/fonts/1942.woff2') format('woff2'),
+  //   /* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/1942.woff')
+  //     format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }

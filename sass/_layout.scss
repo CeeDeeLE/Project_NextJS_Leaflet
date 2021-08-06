@@ -1,6 +1,59 @@
 body {
-  background: $dark-purple;
-  color: white;
+  background: radial-gradient(var(--bg-black) 15%, transparent 16%) 0 0,
+    radial-gradient(var(--bg-black) 15%, transparent 16%) 8px 8px,
+    radial-gradient(var(--bg-black-fog) 15%, transparent 20%) 0 1px,
+    radial-gradient(var(--bg-black-fog) 15%, transparent 20%) 8px 9px;
+  background-color: var(--bg-color);
+  background-size: 16px 16px;
+  color: var(--text);
+  font-family: 'Rubik', sans-serif;
+}
+
+h1 {
+  font-family: 'H1-Test-Schrift', sans-serif;
+  text-align: center;
+}
+
+header,
+main,
+footer {
+  max-width: 80rem;
+  margin: auto;
+  padding: 0.5rem;
+}
+
+h2,
+h3,
+h4 {
+  color: var(--white);
+  font-family: 'Rubik', sans-serif;
+}
+
+button {
+  padding: 0.5em;
+  border-radius: 0.5em;
+  font-size: 1.2rem;
+  background: var(--orange);
+  color: var(--black);
+  border: none;
+  box-shadow: none;
+  margin: 0.5rem;
+  font-weight: bold;
+  &[disabled] {
+    background: var(--text);
+  }
+  &:hover,
+  &:focus {
+    background-color: var(--light-red);
+  }
+}
+
+a {
+  color: var(--light-red);
+  &:hover,
+  &:focus {
+    color: var(--medium-red);
+  }
 }
 
 .site-wrapper {
