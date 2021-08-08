@@ -1,6 +1,9 @@
 // Quelle: https://newsapi.org/
+// Add geojson: https://egghead.io/lessons/react-add-geojson-location-data-to-a-map-using-markers-and-popups-in-react-leaflet
+
 import Layout from '@/components/Layout';
 import BaederList from '@/components/BaederList';
+import BaederLocations from './library/BerlinerBaeder.geojson';
 
 // statt des Keys hier ein Link auf eine Datei, die nicht auf GitHub geladen wird
 /* https://nextjs.org/docs/basic-features/environment-variables
@@ -13,11 +16,11 @@ dev-Prozesses zur Verfügung.
 
 export async function getStaticProps() {
   // code, der nur auf dem Server läuft und im Browser nicht zu sehen ist
-
   let baederWeb = [];
 
   // const urlWeb = `https://www.berlin.de/lageso/gesundheit/gesundheitsschutz/badegewaesser/liste-der-badestellen/index.php/index/all.gjson?q=`;
-  const urlWeb = `../library/BerlinerBaeder.geojson`;
+  // const urlWeb = `../library/BerlinerBaeder.geojson`;
+  const urlWeb = { BaederLocations };
 
   // const urlJson = `library/BerlinerBaeder.geojson`;
 

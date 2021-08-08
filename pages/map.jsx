@@ -35,8 +35,7 @@ export default function Map() {
     async function fetchLocations() {
       try {
         const response = await fetch(
-          // `http://localhost:8000/?search=${debouncedSearch}`
-          `http://localhost:3000/?search=${debouncedSearch}`
+          `http://localhost:8000/?search=${debouncedSearch}`
         );
         if (!response.ok) {
           throw new Error('Fehler beim Laden der Daten');
@@ -66,14 +65,6 @@ export default function Map() {
       http://www.dynamicdrive.com/dynamicindex17/ajaxcontent.htm
       */}
       <div id="content">
-        <iframe
-          name="content"
-          src=""
-          title="unique"
-          width="100%"
-          height="100%"
-          frameBorder="0"
-        ></iframe>
         <label htmlFor="search">PLZ oder Ortsname: </label>
         <input
           id="search"
