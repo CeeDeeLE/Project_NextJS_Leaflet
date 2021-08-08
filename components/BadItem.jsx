@@ -41,9 +41,9 @@ export default function BadItem({ geometry, properties }) {
   );
 }
 
-function count() {
-  for (let i = 0; i <= 78; i + 2) {
-    baederID = baederID + 2;
-    console.log(baederID);
-  }
-}
+// function count() {
+//   for (let i = 0; i <= 78; i + 2) {
+//     baederID = baederID + 2;
+//     console.log(baederID);
+//   }
+// }
