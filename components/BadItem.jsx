@@ -8,8 +8,6 @@ let baederID = 0;
 export default function BadItem({ geometry, properties }) {
   // const [showDetails, toogleShowDetails] = useToggle(false);
 
-  console.log(properties.length);
-
   return (
     <article className="bad-item">
       <h3 className="bad-item__title">
@@ -22,8 +20,9 @@ export default function BadItem({ geometry, properties }) {
         </a>
       </h3>
       <div>
-        Quelle: LaGeSo, vom:{' '}
-        {new Date(properties.data.dat).toLocaleDateString()}
+        Quelle: LaGeSo
+        <br />
+        Datum: {new Date(properties.data.dat).toLocaleDateString()}
       </div>
       {/* <button onClick={toogleShowDetails}>
           {showDetails ? 'Weniger anzeigen' : 'Mehr anzeigen'}

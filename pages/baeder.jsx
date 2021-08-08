@@ -5,13 +5,14 @@ import Layout from '@/components/Layout';
 import BaederList from '@/components/BaederList';
 // import BaederLocations from './library/berlinerBaeder.geojson';
 
-// statt des Keys hier ein Link auf eine Datei, die nicht auf GitHub geladen wird
-/* https://nextjs.org/docs/basic-features/environment-variables
-Achtung: process.env ist kein normales Objekt, Destructuring
-funktioniert nicht, immer process.env.KEY ausschreiben! 
-Achtung: Werte stehen erst nach Neustart des Servers bzw.
-dev-Prozesses zur Verfügung.
-*/
+// ################## aus standorte.jsx #########################
+import dynamic from 'next/dynamic';
+/* dynamisches Laden von: https://nextjs.org/docs/advanced-features/dynamic-import */
+const LocationFinder = dynamic(() => import('@/components/LocationFinder'), {
+  ssr: false,
+});
+// ############ Ende aus Standorte.jsx ###################
+
 // const apiKey = process.env.NEWS_API_KEY;
 
 export async function getStaticProps() {
@@ -31,7 +32,6 @@ export async function getStaticProps() {
     const baederWebData = await response.json();
 
     baederWeb = baederWebData.features;
-    console.log(baederWeb);
 
     //
   } catch (error) {
@@ -59,6 +59,7 @@ export default function news({ grusz, time, baederWeb }) {
       <br />
       {/* {JSON.stringify(news)} */}
       {/* <NewsList news={news} title="aktuelle Meldungen" /> */}
+      <LocationFinder />
       <BaederList
         baederWeb={baederWeb}
         title="Bäder in und um Berlin - Infos zu Standort und Qualität"

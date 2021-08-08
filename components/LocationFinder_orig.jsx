@@ -5,8 +5,7 @@ import MarkerClusterGroup from 'react-leaflet-markercluster';
 import cimdataLocations from '@/library/cimdataLocations';
 import { getDistance } from '@/library/helpers';
 
-// const defaultCenter = { lat: 51.2963, lng: 12.3935 };
-const defaultCenter = { lat: 52.51754, lng: 13.39144 };
+const defaultCenter = { lat: 51.2963, lng: 12.3935 };
 const defaultZoom = 7;
 
 // const defaultCenter = { lat: 51.1864708, lng: 10.0671016 };
@@ -52,6 +51,12 @@ export default function LocationFinder() {
   // -> die Kartendaten kommen von OpenStreetMap
   return (
     <section>
+      {navigatorAvailable && (
+        <button onClick={showUserLocation}>
+          zeige Standorte in meiner Nähe
+        </button>
+      )}
+      <br />
       {/* Die Props von MapContainer werden nur beim ersten Rendern der Karte
     	berücksichtig, spätere Änderungen haben keine Auswirkung! */}
       <MapContainer
@@ -97,12 +102,6 @@ export default function LocationFinder() {
           </Marker>
         )}
       </MapContainer>
-      {navigatorAvailable && (
-        <button onClick={showUserLocation}>
-          zeige Standorte in meiner Nähe
-        </button>
-      )}
-      <br />
       {userLocation && <UserLocation geoData={userLocation} />}
     </section>
   );
@@ -113,7 +112,8 @@ function MapController({ center, zoom }) {
   const map = useMap();
   // console.log(map);
 
-  /* Hier werden Methoden der Leaflet-Bibliothek verwendet, ganz unabhängig von React!
+  /* Hier werden Methoden der Leaflet-Bibliothek verwendet, ganz unabhängig
+  von React!
   https://leafletjs.com/reference-1.7.1.html#map-methods-for-modifying-map-state
   */
 

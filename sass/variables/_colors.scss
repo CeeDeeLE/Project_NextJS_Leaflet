@@ -1,20 +1,22 @@
-$grey: rgb(40, 40, 40);
-$nearly-black: rgb(15, 15, 15);
-$black-fog: rgba(255, 255, 255, 0.1);
-$white: #fffffe;
-$green: rgb(76, 175, 80);
-$gold: gold;
-$creme: rgb(255, 235, 201);
-$creme-orig: rgb(200, 200, 150);
+$nearly-black: hsl(0, 0%, 6%);
+$black-fog: hsla(0, 0%, 100%, 0.1);
+$bg-color: hsl(0, 0%, 16%);
+$black: hsl(0, 0%, 0%);
+$nearly-white: hsl(0, 0%, 94%);
+$white: hsl(0, 0%, 100%);
+$green: hsl(122, 39%, 49%);
+$orange: hsl(39, 100%, 50%);
+$gold: hsl(51, 100%, 50%);
+$creme: hsl(38, 100%, 89%);
+$creme-orig: hsl(60, 31%, 69%);
 
 :root {
-  --bg-color: #($grey);
-  --bg-black: #($nearly-black);
-  --bg-black-fog: #($black-fog);
+  --bg-black: #{$nearly-black};
+  --bg-black-fog: #{$black-fog};
+  --bg-color: #{$bg-color};
   --link-color: #{$green};
-  --button-color: #($creme);
   --hover-color: #{$gold};
   --text-color: #{$creme};
-  --nav-color: #($black-fog);
-  --input-color: #($white);
+  --nav-color: #{$nearly-black};
+  --input-color: #{$nearly-white};
 }
