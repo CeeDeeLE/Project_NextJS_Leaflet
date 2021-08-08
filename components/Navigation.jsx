@@ -12,8 +12,8 @@ export default function Navigation() {
       <Link href="/gallery">
         <a>Galerie</a>
       </Link>
-      <Link href="/news">
-        <a>News</a>
+      <Link href="/baeder">
+        <a>Bade-Infos</a>
       </Link>
       <Link href="/blog">
         <a>Blog</a>

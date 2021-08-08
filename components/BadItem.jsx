@@ -3,7 +3,7 @@
 // import Image from 'next/image';
 // import { useToggle } from '../hooks/useToggle';
 
-export default function NewsItem({
+export default function BadItem({
   // id: properties.data.id,
   // bezirk: properties.data.bezirk,
   // eco: properties.data.eco,
@@ -18,7 +18,8 @@ export default function NewsItem({
   // coords: geometry.coordinates,
 
   properties,
-  // geometry,
+  geometry,
+  baederID,
 }) {
   // const [showDetails, toogleShowDetails] = useToggle(false);
 
@@ -69,7 +70,7 @@ export default function NewsItem({
       <article className="news-item">
         <h3 className="news-item__title">
           <a
-            href={`https://www.badestellen.berlin.de/#/detail/${2}`}
+            href={`https://www.badestellen.berlin.de/#/detail/${baederID}`}
             target="_blank"
             rel="noreferrer"
           >
@@ -78,7 +79,7 @@ export default function NewsItem({
         </h3>
         <div>
           Quelle: LaGeSo, vom:{' '}
-          {/* {new Date(features.properties.data.dat).toLocaleDateString()} */}
+          {new Date(properties.data.dat).toLocaleDateString()}
         </div>
         {/* <button onClick={toogleShowDetails}>
           {showDetails ? 'Weniger anzeigen' : 'Mehr anzeigen'}
@@ -90,7 +91,7 @@ export default function NewsItem({
             alt="Bild zur Nachricht"
           />
           <p className="news-item__description">
-            {/* {(geometry.coordinates[1], geometry.coordinates[0])} */}
+            {(geometry.coordinates[1], geometry.coordinates[0])}
           </p>
         </div>
       </article>
