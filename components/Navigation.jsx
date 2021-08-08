@@ -13,7 +13,7 @@ export default function Navigation() {
         <a>Galerie</a>
       </Link>
       <Link href="/baeder">
-        <a>Bade-Infos</a>
+        <a>Bäder</a>
       </Link>
       <Link href="/blog">
         <a>Blog</a>

@@ -1,3 +1,12 @@
+@import 'components';
+@import 'variables';
+@import 'typographie';
+
+html,
+body {
+  height: 100%;
+}
+
 body {
   background: radial-gradient(var(--bg-black) 15%, transparent 16%) 0 0,
     radial-gradient(var(--bg-black) 15%, transparent 16%) 8px 8px,
@@ -5,7 +14,7 @@ body {
     radial-gradient(var(--bg-black-fog) 15%, transparent 20%) 8px 9px;
   background-color: var(--bg-color);
   background-size: 16px 16px;
-  color: var(--text);
+  color: var(--text-color);
   font-family: 'Rubik', sans-serif;
 }
 
@@ -17,7 +26,7 @@ h1 {
 header,
 main,
 footer {
-  max-width: 80rem;
+  max-width: 90rem;
   margin: auto;
   padding: 0.5rem;
 }
@@ -25,7 +34,6 @@ footer {
 h2,
 h3,
 h4 {
-  color: var(--white);
   font-family: 'Rubik', sans-serif;
 }
 
@@ -33,56 +41,52 @@ button {
   padding: 0.5em;
   border-radius: 0.5em;
   font-size: 1.2rem;
-  background: var(--orange);
-  color: var(--black);
+  background: var(--button-color);
+  color: var(--bg-color);
   border: none;
   box-shadow: none;
   margin: 0.5rem;
   font-weight: bold;
   &[disabled] {
-    background: var(--text);
+    background: var(--link-color);
   }
   &:hover,
   &:focus {
-    background-color: var(--light-red);
+    background-color: var(--hover-color);
   }
 }
 
 a {
-  color: var(--light-red);
+  color: var(--link-color);
+  transition: color 0.1s ease-out;
   &:hover,
   &:focus {
-    color: var(--medium-red);
+    background-color: var(--hover-color);
+    color: var(--bg-color);
   }
 }
 
 .site-wrapper {
-  /*   "Sticky Footer": Sorgt dafür, dass der Footer am unteren Bildschirmrand ist,
-        wenn es nicht genügend Inhalt gibt, um ihn nach unten zu drücken.
-        .page ist ein div um die gesamte Seite herum. */
+  /* "Sticky Footer": Sorgt dafür, dass der Footer am unteren Bildschirmrand ist,
+     wenn es nicht genügend Inhalt gibt, um ihn nach unten zu drücken.
+     .page ist ein div um die gesamte Seite herum. 
+  */
   display: flex;
-  // column ordnet die Inhalte der Seite normal von oben nach unten an
+  /* column ordnet die Inhalte der Seite normal von oben nach unten an
+  */
   flex-direction: column;
-  /*   Mindesthöhe des gesamten Inhalts: 100% der "viewport height", d.h.
-        des Bildschirms. */
-  min-height: 100vh;
-}
 
-.site-main {
-  /*   Teil des Sticky Footers: Sorgt dafür, dass der "mittlere" Bereich, also der Inhalt
-    anwächst, falls freier Platz zwischen Inhalt und Footer besteht.
-    Eigentlich würde auch flex: 1; genügen, aber der alte Internet Explorer
-    hat einen Bug... Ist heute zum Glück nicht mehr sehr relevant, aber bei
-    Problemen ist hier eine Übersicht zu Bugs und möglichen Lösungen zu finden:
-    https://github.com/philipwalton/flexbugs */
   flex: 1 0 auto;
+
+  /* Mindesthöhe des gesamten Inhalts: 100% der "viewport height", d.h.
+     des Bildschirms. 
+  */
+  _min-height: calc(100vh - 70px);
 }
 
 .inner-width {
-  width: 100%;
-  max-width: 50rem;
+  width: 90%;
+  max-width: 90rem;
   padding: 0 1rem;
   margin: 0 auto;
-  _margin-left: auto;
-  _margin-right: auto;
 }

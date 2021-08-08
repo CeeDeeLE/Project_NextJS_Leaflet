@@ -1,13 +1,27 @@
-import NewsItem from './BadItem';
+import Link from 'next/link';
+import BadItem from './BadItem';
 
 export default function BadList({ baederWeb, title = '' }) {
   return (
-    <section className="news-list">
-      {title && <h2 className="news-list__title">{title}</h2>}
-      {baederWeb.map((feature) => (
-        // <NewsItem key={item.url} {...item} />
-        <NewsItem key={feature.properties.id} {...feature} />
-      ))}
+    <section className="bad-list">
+      {title && (
+        <h2 className="bad-list__title">
+          <Link href="https://www.badestellen.berlin.de">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              title="Link zur Informations-Quelle badestellen.berlin.de"
+            >
+              {title}
+            </a>
+          </Link>
+        </h2>
+      )}
+      <div className="bad-grid">
+        {baederWeb.map((feature) => (
+          <BadItem key={feature.properties.id} {...feature} />
+        ))}
+      </div>
     </section>
   );
 }

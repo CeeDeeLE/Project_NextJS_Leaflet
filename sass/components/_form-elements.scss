@@ -2,8 +2,8 @@ button {
   padding: 0.5em;
   border-radius: 0.5em;
   font-size: 1.2rem;
-  background: orange;
-  color: $black;
+  background: var(--hover-color);
+  color: var(--bg-black);
   border: none;
   box-shadow: none;
   margin: 0.5rem;
@@ -15,10 +15,10 @@ button {
 
 .autosuggest {
   input {
-    background: $white;
-    color: $dark-purple;
+    background: var(--input-color);
+    color: var(--bg-black);
     &::placeholder {
-      color: $black;
+      color: var(--bg-black);
     }
   }
 }

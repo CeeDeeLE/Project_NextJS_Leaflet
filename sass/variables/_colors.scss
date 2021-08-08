@@ -1,17 +1,20 @@
-$dark-purple: #232946;
-$black: rgb(15, 15, 15);
+$grey: rgb(40, 40, 40);
+$nearly-black: rgb(15, 15, 15);
+$black-fog: rgba(255, 255, 255, 0.1);
 $white: #fffffe;
 $green: rgb(76, 175, 80);
-$orange: #ff8906;
-$medium-red: #e53170;
-$light-red: #f25f4c;
-$creme: rgb(200, 200, 150);
+$gold: gold;
+$creme: rgb(255, 235, 201);
+$creme-orig: rgb(200, 200, 150);
 
 :root {
-  --bg-color: #282828;
-  --bg-black: rgb(0, 0, 0);
-  --bg-black-fog: rgba(255, 255, 255, 0.1);
+  --bg-color: #($grey);
+  --bg-black: #($nearly-black);
+  --bg-black-fog: #($black-fog);
   --link-color: #{$green};
-  --hover-color: #{$orange};
-  --text: #{$creme};
+  --button-color: #($creme);
+  --hover-color: #{$gold};
+  --text-color: #{$creme};
+  --nav-color: #($black-fog);
+  --input-color: #($white);
 }

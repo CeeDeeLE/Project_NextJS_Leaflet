@@ -1,0 +1,10 @@
+.site-main {
+  /* Teil des Sticky Footers: Sorgt dafür, dass der "mittlere" Bereich, also der Inhalt
+      anwächst, falls freier Platz zwischen Inhalt und Footer besteht.
+      Eigentlich würde auch flex: 1; genügen, aber der alte Internet Explorer
+      hat einen Bug... Ist heute zum Glück nicht mehr sehr relevant, aber bei
+      Problemen ist hier eine Übersicht zu Bugs und möglichen Lösungen zu finden:
+      https://github.com/philipwalton/flexbugs 
+    */
+  flex: 1 0 auto;
+}

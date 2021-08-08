@@ -1,25 +1,19 @@
-a {
-  color: var(--link-color);
-  transition: color 0.1s ease-out;
-  &:hover,
-  &:focus {
-    color: var(--hover-color);
-  }
-}
-
 .site-navigation {
   width: 100%;
-  _background: var(--text);
+  min-height: 2rem;
+  background: var(--link-color);
+  color: var(--bg-black);
   text-align: center;
-  padding: 0 1rem;
+  padding: 0;
   a {
     font-size: 1.2rem;
     font-weight: 900;
     text-decoration: none;
     text-transform: uppercase;
     display: inline-block;
+    padding: 0.5rem 2rem;
     &:not(:last-of-type) {
-      margin-right: 1.4rem;
+      justify-content: space-between;
     }
   }
 }
