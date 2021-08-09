@@ -7,16 +7,42 @@ ausgegeben, nicht im Browser!
 3. Mischt den Text durcheinander und fügt ihn dann wieder zusammen.
 4. Gebt den Text in einem JSON-Objekt unter dem Schlüssel text zurück.
 */
-import { shuffle } from '../../library/helpers';
+import { replace, shuffle } from '../../library/helpers';
 
+// s.a. https://www.npmjs.com/package/react-shuffle-text
 export default function shuffleText(req, res) {
   console.log(req.query);
 
-  const { text = '' } = req.query;
+  let { text = ' ' } = req.query;
+  console.log(text);
 
-  // meine Lösung mit Option auf verschiedene Split-Kriterien:
-  const textArray = text.split(' ');
-  const shuffledText = shuffle(textArray.join(''));
+  let textArray;
+  let wordArray;
+  let shuffledText = '';
+  let shuffled;
+
+  if (text.includes(' ')) {
+    text = replace(text, ',', ' , ');
+    text = replace(text, '.', ' .');
+
+    wordArray = text.split(' ');
+  } else {
+    textArray = text.split('');
+  }
+
+  if (wordArray) {
+    for (let i = 0; i < wordArray.length; i++) {
+      shuffled = shuffle(wordArray[i]).join('') + ' ';
+      shuffledText = shuffledText + shuffled;
+    }
+  } else {
+    shuffledText = shuffle(textArray).join('');
+  }
+  console.log(shuffledText);
+
+  // // meine Lösung mit Option auf verschiedene Split-Kriterien:
+  // const textArray = text.split('');
+  // const shuffledText = shuffle(textArray.join(''));
 
   // // Friedrichs Lösung - one step:
   // const shuffledText = shuffle([...text]).join('');

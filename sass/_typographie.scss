@@ -1,22 +1,40 @@
-/* rubik-mono-one-regular - latin */
+// h1
 @font-face {
-  font-family: 'Rubik Mono One';
+  font-family: 'Philosopher';
   font-style: normal;
   font-weight: 400;
-  src: local(''),
-    url('/fonts/rubik-mono-one-v9-latin-regular.woff2') format('woff2'),
+  // elegante Serifenübergangsschrift
+  src: local(''), url('/fonts/philosopher_regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('/fonts/rubik-mono-one-v9-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('/fonts/philosopher_regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* rubik-regular - latin */
+// h2 - h6, button ...
 @font-face {
-  font-family: 'Rubik';
+  font-family: 'Caviar';
   font-style: normal;
   font-weight: 400;
-  src: local(''), url('/fonts/rubik-v11-latin-regular.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('/fonts/rubik-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(''), url('/fonts/caviar-dreams.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/caviar-dreams.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+// Standard-Text:
+// Calibri -> evtl. Font herunterladen als woff und woff2 !!!!
+
+// color-fun-Schrift für fun-stuff-site
+@font-face {
+  font-family: 'Eraser';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''), url('/fonts/eraser.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/eraser.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+  font-family: 'Gilbert';
+  src: url('/fonts/Gilbert-Color.otf');
 }
 
 // zum Testen
@@ -40,11 +58,11 @@
   // src: local(''), url('/fonts/gondola_SD.woff2') format('woff2'),
   //   /* Chrome 26+, Opera 23+, Firefox 39+ */
   //     url('/fonts/gondola_SD.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  // sehr scharfe/ gestochene Schrift
+  // sehr scharfe/ gestochene Schrift, leichter Bauhaus-Stil
   // src: local(''), url('/fonts/caviar_dreams_bold.woff2') format('woff2'),
   //   /* Chrome 26+, Opera 23+, Firefox 39+ */
   //     url('/fonts/caviar_dreams_bold.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  // wie Rubik Mono, aber ohne Serifen
+  // Fettschrift - ähnlich Rubik Mono -, aber ohne Serifen
   // src: local(''), url('/fonts/candal.woff2') format('woff2'),
   //   /* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/candal.woff')
   //     format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */

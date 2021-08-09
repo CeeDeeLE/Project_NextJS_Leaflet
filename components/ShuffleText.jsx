@@ -40,6 +40,7 @@ export default function ShuffleText() {
         // holt den geshuffelten Text in apiText ab
         const apiText = await response.json();
         setShuffledText(apiText.text);
+        console.log('fetched Text: ' + apiText.text);
 
         // falls try nicht geklappt hat
       } catch (error) {
@@ -54,33 +55,49 @@ export default function ShuffleText() {
 
   // Ausgabe
   return (
-    <>
+    <div className="shuffler">
+      <h3>Textvorschlag: </h3>
+      {quote}
+      <p>&nbsp;</p>
+      <h2>Texteingabe: &nbsp;</h2>
       <p>
-        Textvorschlag: <br />
-        {quote}
+        <input
+          id="text"
+          value={text}
+          // defaultValue={quote}
+          onChange={(e) => setText(e.target.value)}
+        />
       </p>
-      <label htmlFor="text">Texteingabe: &nbsp;</label>
-      <input
-        id="text"
-        value={text}
-        // defaultValue={quote}
-        onChange={(e) => setText(e.target.value)}
-      />
-      <strong className="big-text">
-        {/* animiert */}
-        {/* {[...shuffledText].map((char, index) => (
+      {shuffledText && (
+        <strong className="shuffled-text">
+          {/* animiert */}
+          {/* {[...shuffledText].map((char, index) => (
           <span
             key={Math.random()}
             style={{
-              "--delay": `${(index * 0.2).toFixed(2)}s`,
+              '--delay': `${(index * 0.2).toFixed(2)}s`,
             }}
           >
             {char}
           </span>
-        ))}{" "} */}
-        {/* nicht animiert */}
-        {shuffledText}
-      </strong>
-    </>
+        ))} */}
+          {/* nicht animiert */}
+          {shuffledText}
+        </strong>
+      )}
+      {shuffledText && (
+        <strong className="shuffled-text-color">
+          {/* nicht animiert */}
+          {shuffledText}
+        </strong>
+      )}
+      <button
+        className="new-shuffle"
+        type="reset"
+        onClick={(e) => setText(e.target.value)}
+      >
+        Neuer Text
+      </button>
+    </div>
   );
 }

@@ -51,7 +51,7 @@ export default function LocationFinder() {
   // -> MapBox und maptiler (https://www.maptiler.com/) liefern kostenlose Karten
   // -> die Kartendaten kommen von OpenStreetMap
   return (
-    <section>
+    <section className="leaflet">
       {/* Die Props von MapContainer werden nur beim ersten Rendern der Karte
     	berücksichtig, spätere Änderungen haben keine Auswirkung! */}
       <MapContainer
@@ -151,27 +151,29 @@ function UserLocation({ geoData }) {
   } = geoData;
 
   return (
-    <section>
-      <h2>Ihr Standort</h2>
-      <dl>
-        <dt>Längengrad</dt>
-        <dd>{lng || 'Nicht verfügbar'}</dd>
-        <dt>Breitengrad</dt>
-        <dd>{lat || 'Nicht verfügbar'}</dd>
-        <dt>Positionsgenauigkeit</dt>
-        <dd>{accuracy || 'Nicht verfügbar'}</dd>
-        <dt>Höhe</dt>
-        <dd>{altitude || 'Nicht verfügbar'}</dd>
-        <dt>Höhengenauigkeit</dt>
-        <dd>{altitudeAccuracy || 'Nicht verfügbar'}</dd>
-        <dt>Geschwindigkeit</dt>
-        <dd>{speed || 'Nicht verfügbar'}</dd>
-        <dt>Richtung</dt>
-        <dd>{heading || 'Nicht verfügbar'}</dd>
-        <dt>Zeitstempel</dt>
-        <dd>{timestamp || 'Nicht verfügbar'}</dd>
-      </dl>
-    </section>
+    <>
+      <h2>Mein Standort</h2>
+      <div>
+        <dl>
+          <dt>Längengrad</dt>
+          <dd>{lng || 'Nicht verfügbar'}</dd>
+          <dt>Breitengrad</dt>
+          <dd>{lat || 'Nicht verfügbar'}</dd>
+          <dt>Positionsgenauigkeit</dt>
+          <dd>{accuracy || 'Nicht verfügbar'}</dd>
+          <dt>Höhe</dt>
+          <dd>{altitude || 'Nicht verfügbar'}</dd>
+          <dt>Höhengenauigkeit</dt>
+          <dd>{altitudeAccuracy || 'Nicht verfügbar'}</dd>
+          <dt>Geschwindigkeit</dt>
+          <dd>{speed || 'Nicht verfügbar'}</dd>
+          <dt>Richtung</dt>
+          <dd>{heading || 'Nicht verfügbar'}</dd>
+          <dt>Zeitstempel</dt>
+          <dd>{timestamp || 'Nicht verfügbar'}</dd>
+        </dl>
+      </div>
+    </>
   );
 }
 

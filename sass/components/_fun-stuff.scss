@@ -1,9 +1,22 @@
-.big-text {
-  max-width: 50rem;
+.shuffler {
+  width: 100%;
+
+  input {
+    width: 100%;
+    margin-bottom: 1rem;
+    &:focus {
+      font-weight: bold;
+    }
+  }
+}
+
+.shuffled-text,
+.shuffled-text-color {
+  max-width: 100%;
   display: block;
   word-break: break-all;
-  font-size: 3rem;
-  font-family: 'Rubik Mono One', serif;
+  letter-spacing: 0.1rem;
+  margin-bottom: 1rem;
 
   span {
     display: inline-block;
@@ -18,6 +31,15 @@
       --startPosition: 10em;
     }
   }
+}
+
+.shuffled-text {
+  font-family: 'Eraser', sans-serif;
+  font-size: 2rem;
+}
+.shuffled-text-color {
+  font-family: 'Gilbert', sans-serif;
+  font-size: 3rem;
 }
 
 @keyframes slide-in {
