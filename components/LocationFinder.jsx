@@ -184,12 +184,6 @@ function UserLocation({ geoData }) {
   );
 }
 
-export function showMyLoc() {
-  // Prüfen, ob das Gerät Geolocation unterstützt
-  const navigatorAvailable = Boolean(window?.navigator?.geolocation);
-  if (navigatorAvailable) showUserLocation();
-}
-
 function getLocationsInRadius(center, radius = 10) {
   const locationsInRadius = cimdataLocations.filter(({ latLng }) => {
     const distance = getDistance(
