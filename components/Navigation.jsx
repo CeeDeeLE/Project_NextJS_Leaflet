@@ -12,7 +12,7 @@ export default function Navigation() {
       <Link href="/baeder">
         <a>Bäder</a>
       </Link>
-      <Link href="/map">
+      <Link href="/plzfinder">
         <a>PLZ-Suche</a>
       </Link>
       <Link href="/textShuffler">
