@@ -16,10 +16,7 @@ export default function Navigation() {
         <a>Blog</a>
       </Link>
       <Link href="/map">
-        <a>Karte</a>
-      </Link>
-      <Link href="/standorte">
-        <a>Standorte</a>
+        <a>PLZ-Suche</a>
       </Link>
       <Link href="/textShuffler">
         <a>Fun-Stuff</a>

@@ -19,4 +19,12 @@
     padding-top: 7vh;
     vertical-align: baseline;
   }
+
+  h1 {
+    height: 4rem;
+    line-height: 4rem;
+    background-color: var(--light-bg-color);
+    padding: 0;
+    margin: 0;
+  }
 }

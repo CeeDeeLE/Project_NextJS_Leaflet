@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import cimdataLocations from '@/library/cimdataLocations';
 import { getDistance } from '@/library/helpers';
+import { useToggle } from '../hooks/useToggle';
 
 // const defaultCenter = { lat: 51.2963, lng: 12.3935 };
 const defaultCenter = { lat: 52.51754, lng: 13.39144 };
@@ -19,6 +20,7 @@ export default function LocationFinder() {
   const [zoom, setZoom] = useState(defaultZoom);
   const [userLocation, setUserLocation] = useState(null);
   const [locations, setLocations] = useState(cimdataLocations);
+  const [showDetails, toogleShowDetails] = useToggle(false);
 
   // Prüfen, ob das Gerät Geolocation unterstützt
   const navigatorAvailable = Boolean(window?.navigator?.geolocation);
@@ -44,6 +46,7 @@ export default function LocationFinder() {
       console.log(error);
     }
   }
+  showUserLocation();
 
   console.log('LocationFinder');
 
@@ -97,13 +100,17 @@ export default function LocationFinder() {
           </Marker>
         )}
       </MapContainer>
-      {navigatorAvailable && (
-        <button onClick={showUserLocation}>
-          zeige Standorte in meiner Nähe
-        </button>
+      <button onClick={toogleShowDetails}>
+        {showDetails
+          ? 'zeige alle Bäder'
+          : 'zeige meinen Standort und Bäder in meiner Nähe'}
+      </button>
+      {showDetails && navigatorAvailable && (
+        <>
+          <p>{showUserLocation}</p>
+          {userLocation && <UserLocation geoData={userLocation} />}
+        </>
       )}
-      <br />
-      {userLocation && <UserLocation geoData={userLocation} />}
     </section>
   );
 }
@@ -175,6 +182,12 @@ function UserLocation({ geoData }) {
       </div>
     </>
   );
+}
+
+export function showMyLoc() {
+  // Prüfen, ob das Gerät Geolocation unterstützt
+  const navigatorAvailable = Boolean(window?.navigator?.geolocation);
+  if (navigatorAvailable) showUserLocation();
 }
 
 function getLocationsInRadius(center, radius = 10) {

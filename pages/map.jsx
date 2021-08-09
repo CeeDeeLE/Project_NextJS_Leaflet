@@ -52,15 +52,17 @@ export default function Map() {
 
   // Ende Test
   return (
-    <Layout title="Karte">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, odit dicta
-        neque molestiae et optio cum esse incidunt voluptates ad! Sit iusto vero
-        dolores aliquam quas, molestiae quos quae aliquid provident excepturi
-        omnis, quibusdam asperiores, obcaecati enim corrupti. Aspernatur
-        assumenda magnam veniam inventore voluptatum? Doloremque cumque
-        voluptatem iusto totam repellendus!
-      </p>
+    <Layout title="PLZ-Suche mit Markierung des Ortes in der Karte">
+      <div className="intro">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, odit
+          dicta neque molestiae et optio cum esse incidunt voluptates ad! Sit
+          iusto vero dolores aliquam quas, molestiae quos quae aliquid provident
+          excepturi omnis, quibusdam asperiores, obcaecati enim corrupti.
+          Aspernatur assumenda magnam veniam inventore voluptatum? Doloremque
+          cumque voluptatem iusto totam repellendus!
+        </p>
+      </div>
       {/* Ausgabe der Karte in ein div
       http://www.dynamicdrive.com/dynamicindex17/ajaxcontent.htm
       */}
@@ -84,9 +86,9 @@ export default function Map() {
             console.log(latitude);
             const url = `https://www.openstreetmap.org/#map=14/${latitude}/${longitude}`;
             return (
-              <div key={index} name="map">
+              <div className="plzMap" key={index} name="map">
                 <a href={url} target="content" rel="noreferrer">
-                  {`${country_code} ${zipcode} ${place}`}
+                  {`${country_code} - ${zipcode} ${place}`}
                 </a>
               </div>
             );
