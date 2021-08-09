@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import cimdataLocations from '@/library/cimdataLocations';
-import Berlin from '@/library/zipcodes.de.json';
 import { getDistance } from '@/library/helpers';
 import { useToggle } from '../hooks/useToggle';
 
