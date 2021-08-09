@@ -6,10 +6,18 @@ import Layout from '../components/Layout';
 import { useEffect, useState } from 'react';
 import { useDebouncedValue } from '../hooks/useDebouncedValue';
 
+// ################## aus standorte.jsx #########################
+import dynamic from 'next/dynamic';
+/* dynamisches Laden von: https://nextjs.org/docs/advanced-features/dynamic-import */
+const PLZFinder = dynamic(() => import('@/components/PLZFinder'), {
+  ssr: false,
+});
+// ############ Ende aus Standorte.jsx ###################
+
 export default function Map() {
   // Test Kartenintegration
   // für Auslese des Eingabefeld-Inhalts
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState('Berlin');
 
   // debounce: search, wenn search 600 ms unverändert geblieben ist
   // löst search-Variable in dieser Fkt. ab
@@ -63,10 +71,12 @@ export default function Map() {
           cumque voluptatem iusto totam repellendus!
         </p>
       </div>
+      <PLZFinder />
+
       {/* Ausgabe der Karte in ein div
       http://www.dynamicdrive.com/dynamicindex17/ajaxcontent.htm
       */}
-      <div id="content">
+      <div className="plzsearch">
         <label htmlFor="search">PLZ oder Ortsname: </label>
         <input
           id="search"
@@ -81,13 +91,15 @@ export default function Map() {
           // -> debounce: lässt alle Aufrufe zurückprallen bis eine bestimmte Zeit vergangen ist (Pausenzeit)
           onChange={(e) => setSearch(e.target.value)}
         />
+      </div>
+      <div id="plzresult">
         {locations.map(
           ({ country_code, place, zipcode, latitude, longitude }, index) => {
             console.log(latitude);
             const url = `https://www.openstreetmap.org/#map=14/${latitude}/${longitude}`;
             return (
               <div className="plzMap" key={index} name="map">
-                <a href={url} target="content" rel="noreferrer">
+                <a href={url} target="plzresult" rel="noreferrer">
                   {`${country_code} - ${zipcode} ${place}`}
                 </a>
               </div>

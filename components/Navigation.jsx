@@ -12,14 +12,14 @@ export default function Navigation() {
       <Link href="/baeder">
         <a>Bäder</a>
       </Link>
-      <Link href="/blog">
-        <a>Blog</a>
-      </Link>
       <Link href="/map">
         <a>PLZ-Suche</a>
       </Link>
       <Link href="/textShuffler">
         <a>Fun-Stuff</a>
+      </Link>
+      <Link href="/blog">
+        <a>Blog</a>
       </Link>
       <Link href="/impressum">
         <a>Impressum</a>

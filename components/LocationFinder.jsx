@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import cimdataLocations from '@/library/cimdataLocations';
+import Berlin from '@/library/zipcodes.de.json';
 import { getDistance } from '@/library/helpers';
 import { useToggle } from '../hooks/useToggle';
 
@@ -12,15 +13,18 @@ const defaultZoom = 7;
 
 // const defaultCenter = { lat: 51.1864708, lng: 10.0671016 };
 // const defaultZoom = 6;
-
 // const myPosition = { lat: 51.2963, lng: 12.3935 };
 
 export default function LocationFinder() {
   const [mapCenter, setMapCenter] = useState(defaultCenter);
   const [zoom, setZoom] = useState(defaultZoom);
   const [userLocation, setUserLocation] = useState(null);
+  // const [locations, setLocations] = useState(Berlin);
   const [locations, setLocations] = useState(cimdataLocations);
   const [showDetails, toogleShowDetails] = useToggle(false);
+  const [buttonText, setButtonText] = useState(
+    'zeige meinen Standort und Bäder in meiner Nähe'
+  );
 
   // Prüfen, ob das Gerät Geolocation unterstützt
   const navigatorAvailable = Boolean(window?.navigator?.geolocation);
@@ -46,7 +50,8 @@ export default function LocationFinder() {
       console.log(error);
     }
   }
-  showUserLocation();
+  // https://de.reactjs.org/docs/faq-functions.html
+  // showUserLocation();
 
   console.log('LocationFinder');
 
@@ -100,16 +105,22 @@ export default function LocationFinder() {
           </Marker>
         )}
       </MapContainer>
-      <button onClick={toogleShowDetails}>
+      {/* <button onClick={toogleShowDetails}> */}
+      <button
+        onClick={() => {
+          toogleShowDetails();
+          showUserLocation();
+          if (buttonText === 'zeige alle Bäder') {
+            window.location.reload();
+          }
+        }}
+      >
         {showDetails
           ? 'zeige alle Bäder'
           : 'zeige meinen Standort und Bäder in meiner Nähe'}
       </button>
       {showDetails && navigatorAvailable && (
-        <>
-          <p>{showUserLocation}</p>
-          {userLocation && <UserLocation geoData={userLocation} />}
-        </>
+        <>{userLocation && <UserLocation geoData={userLocation} />}</>
       )}
     </section>
   );

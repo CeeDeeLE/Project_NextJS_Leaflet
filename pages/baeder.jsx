@@ -43,14 +43,13 @@ export async function getStaticProps() {
       grusz: 'Bitte auch den Wetterbericht beachten: 😛',
       time: new Date().toLocaleTimeString(),
       baederWeb,
-      // baederJson,
     },
     revalidate: 10,
   };
 }
 
 // Function musste 2x angelegt werden, da compilieren mit ungenutzen Var nicht mgl.
-export default function news({ grusz, time, baederWeb }) {
+export default function baeder({ grusz, time, baederWeb }) {
   //
   return (
     <Layout title="Baden gehen... ">
